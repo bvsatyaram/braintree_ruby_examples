@@ -18,3 +18,6 @@ See rails_tr_checkout/README for instructions on running the example.
 A Rails 3 example of creating one time transactions using the Braintree transparent redirect API.
 See rails3_tr_checkout/README for instructions on running the example.
 
+## mobile_app
+
+An example server for supporting mobile applications
