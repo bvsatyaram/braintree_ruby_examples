@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.2'
 gem 'rspec-rails', '2.8.1'
-gem 'braintree', :path => "~/bt/braintree-ruby"
+gem 'braintree', '>= 2.16.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Rails3TrCheckout::Application.config.secret_token = 'c77e6b8180e252fde9575c4e1f38d960e1bf8d844ccb048692d0f4748ee3c27775857b91bb3ef0b1fbcb906568a444d6664119ccdcb392cff40859b8655105c7'
+Rails3TrCheckout::Application.config.secret_token = '68b4882d2debfbf3065746bd3b339268975fac06843f34103b4fef3e0db0fe8f382d9735a1c016326594ad7421f765f0ac7194fbb001dbafc25a783d66c63377'
