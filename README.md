@@ -21,3 +21,10 @@ See rails3_tr_checkout/README for instructions on running the example.
 ## mobile_app
 
 An example server for supporting mobile applications
+
+## rails3_tr_devise
+
+A Rails 3 example of linking a Braintree Customer with a local [Devise][dev] user using the Braintree transparent redirect API.
+See rails3_tr_devise/README for instructions on running the example.
+
+[dev]: https://github.com/plataformatec/devise
