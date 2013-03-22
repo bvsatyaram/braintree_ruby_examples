@@ -2,16 +2,11 @@ class CustomerController < ApplicationController
   before_filter :authenticate_user!
 
   def new
-    @tr_data = Braintree::TransparentRedirect.
-                create_customer_data(:redirect_url => confirm_customer_url)
+    fetch_new_transparent_redirect_data
   end
 
   def edit
-    current_user.with_braintree_data!
-    @credit_card = current_user.default_credit_card
-    @tr_data = Braintree::TransparentRedirect.
-                update_customer_data(:redirect_url => confirm_customer_url,
-                                     :customer_id => current_user.braintree_customer_id)
+    fetch_edit_transparent_redirect_data
   end
 
   def confirm
@@ -22,10 +17,25 @@ class CustomerController < ApplicationController
       current_user.save!
       render :action => "confirm"
     elsif current_user.has_payment_info?
-      current_user.with_braintree_data!
+      fetch_edit_transparent_redirect_data
       render :action => "edit"
     else
+      fetch_new_transparent_redirect_data
       render :action => "new"
     end
   end
+
+  private
+    def fetch_new_transparent_redirect_data
+      @tr_data = Braintree::TransparentRedirect.
+                  create_customer_data(:redirect_url => confirm_customer_url)
+    end
+
+    def fetch_edit_transparent_redirect_data
+      current_user.with_braintree_data!
+      @credit_card = current_user.default_credit_card
+      @tr_data = Braintree::TransparentRedirect.
+                  update_customer_data(:redirect_url => confirm_customer_url,
+                                       :customer_id => current_user.braintree_customer_id)
+    end
 end
